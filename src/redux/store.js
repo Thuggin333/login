@@ -1,17 +1,15 @@
 import { combineReducers, createStore } from "redux";
-import initialCurrentUser, {currentUserReducer} from "../app/currentUser/currentUserSlice";
-import TodoReducer, { initialTodo } from "../app/todo/todoSlice";
+import todoSlice, { todoInitialState } from "./Slice/todoSlice";
+import userSlice, { userInitialState } from "./Slice/userSlice";
 
-
-const store = createStore(
-  combineReducers({
-    currentUser: currentUserReducer,
-    todo:TodoReducer
-  }),
-  {
-    currentUser: initialCurrentUser,
-    todo:initialTodo
-  }
-);
+const store = createStore(combineReducers({
+    user:userSlice,
+    todo:todoSlice
+},
+    {
+        user:userInitialState,
+        todo:todoInitialState
+    }
+))
 
 export default store;

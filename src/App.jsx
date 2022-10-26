@@ -1,28 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
-import { userSelector } from "./app/currentUser/currentUserSlice";
-import { todoSelector } from "./app/todo/todoSlice";
+import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
+import LoginPage from "./Component/LoginPage";
+import Todos from "./Component/Todos";
 
 function App() {
-  const name = useSelector(userSelector)
-  const todo = useSelector(todoSelector)
-  const dispatch = useDispatch();
-  console.log(todo);
+
   return (
-    <div className="App">
-      {name}
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => {
-          dispatch({
-            type: "currentUserName",
-            payload: {
-              name: e.target.value,
-            },
-          });
-        }}
-      />
-    </div>
+   <BrowserRouter>
+    <Routes>
+      <Route path="" element={<Todos/>}/>
+      <Route path="/LogIn" element={<LoginPage />} />
+    </Routes>
+   </BrowserRouter>
+      
   );
 }
 
