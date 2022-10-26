@@ -1,8 +1,9 @@
 
-export default function todoSlice(state ={},action){
-    if (action.payload === "todoSlice") {
-        return state.todoSlice
+export default function todoSlice(state =todoInitialState,action){
+    if (action.type === "todoSlice") {
+        return state
     }
+    return state
 }
 
 export const todoInitialState = [
@@ -13,4 +14,4 @@ export const todoInitialState = [
     }
 ]
 
-export const todoSelector = (state)=> state
+export const todoSelector = (state)=> state.todo

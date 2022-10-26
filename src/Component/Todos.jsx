@@ -1,5 +1,6 @@
-import React from 'react'
-import withUser from './HOC_component'
+
+import {withUser} from './withUser';
+
 
 function Todos() {
   return (
@@ -7,4 +8,4 @@ function Todos() {
   )
 }
 
-export default withUser(Todos)
+export default withUser(Todos);
